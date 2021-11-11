@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: policy_db
+    ports:
+      - 5432:5432
+
+  keycloak:
+    image: jboss/keycloak:12.0.2
+    volumes:
+    - ./keycloak/imports:/opt/jboss/keycloak/imports
+    environment:
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+      DB_VENDOR: h2
+      KEYCLOAK_IMPORT: /opt/jboss/keycloak/imports/realm-export.json -Dkeycloak.profile.feature.upload_scripts=enabled
+    ports:
+      - 8484:8080
