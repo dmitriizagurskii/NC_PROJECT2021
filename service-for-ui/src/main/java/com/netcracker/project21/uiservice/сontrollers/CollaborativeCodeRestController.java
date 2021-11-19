@@ -1,7 +1,7 @@
 package com.netcracker.project21.uiservice.сontrollers;
 
 
-import com.netcracker.project21.uiservice.services.CodeService;
+import com.netcracker.project21.uiservice.interfaces.CodeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,9 +20,10 @@ public class CollaborativeCodeRestController {
 
 //    @CrossOrigin(origins = {"http://127.0.0.1:5500", "http://localhost:5500"}, allowedHeaders = "*")
     @GetMapping("/interview-room/{id}/code")
-    public String getCode(@PathVariable Integer id) {
-        return codeService.getText(id);
+    public String getCode(@PathVariable String id) {
+        return codeService.getCodeText(id);
     }
+
 
 
 }

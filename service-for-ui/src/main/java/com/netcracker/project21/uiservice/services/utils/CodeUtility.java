@@ -2,33 +2,37 @@ package com.netcracker.project21.uiservice.services.utils;
 
 
 import com.netcracker.project21.uiservice.domain.CodeChangeInfo;
-import org.springframework.stereotype.Service;
+import lombok.extern.slf4j.Slf4j;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
-@Service
+@Slf4j
 public class CodeUtility {
 
 
-    // Changing text
-    public void applyChange(StringBuilder text, CodeChangeInfo changeInfo) {
+    public static void applyChange(StringBuilder text, CodeChangeInfo changeInfo) {
         WrapInt start = new WrapInt();
         WrapInt end = new WrapInt();
 
         transformCoordinates(text, changeInfo.getFrom(), changeInfo.getTo(), start, end);
 
-        if (start.value == end.value && changeInfo.getText() == "") {
+
+        if (end.value >= text.length()) text.append(String.join("", Collections.nCopies(end.value - text.length() + 256, " ")));
+
+
+        if (start.value == end.value && changeInfo.getText().isEmpty()) {
             text.replace(start.value, end.value, "\n");
         } else {
             text.replace(start.value, end.value, changeInfo.getText());
         }
-        System.out.println("Updated text: " + text);
+        log.info("Updated text: " + text);
     }
 
     // transforming coordinates: {from: {line: int, ch: int}, to: {line: int, ch: int}} -> {start, end}
-    private void transformCoordinates(StringBuilder text, CodeChangeInfo.From from, CodeChangeInfo.To to,
+    private static void transformCoordinates(StringBuilder text, CodeChangeInfo.From from, CodeChangeInfo.To to,
                                      WrapInt start, WrapInt end) {
+//        log.info("from: " + from.getLine() + ", " + from.getCh() + "; to: " + to.getLine() + ", " + to.getCh());
+
         if (to.getLine() == 0) {
             start.value = from.getCh();
             end.value = to.getCh();
@@ -51,7 +55,7 @@ public class CodeUtility {
 
         }
 
-
+//    log.info("start: " + start.value + ", end:" + end.value);
 
 
     }

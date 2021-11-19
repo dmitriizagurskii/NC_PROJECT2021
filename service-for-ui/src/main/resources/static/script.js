@@ -1,7 +1,7 @@
 var stompClient;
 var id;
 var myCodeMirror;
-var roomId;
+var roomId = "15c67807-3be7-4512-b361-b6923485bf44";
 
 
 $(function() {
@@ -47,9 +47,9 @@ function connect() {
     stompClient = Stomp.over(socket);
 
     id = $('#input-name').val();
-    roomId = $("#input-roomid").val();
 
     fetchAndSetText(roomId);
+
 
     // set connection through websocket
     stompClient.connect({}, function(frame) {
@@ -110,9 +110,10 @@ function fetchAndSetText(id) {
     $.get(url, function (data) {
         myCodeMirror.getDoc().setValue(data);
     });
-
-
 }
+
+
+
 
 // disconnect websocket
 function disconnect() {
