@@ -6707,7 +6707,7 @@
     "End": "goLineEnd", "Home": "goLineStartSmart", "PageUp": "goPageUp", "PageDown": "goPageDown",
     "Delete": "delCharAfter", "Backspace": "delCharBefore", "Shift-Backspace": "delCharBefore",
     "Tab": "defaultTab", "Shift-Tab": "indentAuto",
-    "Enter": "newlineAndIndent", "Insert": "toggleOverwrite",
+    "Enter": "newline", "Insert": "toggleOverwrite", //"Enter": "newlineAndIndent"
     "Esc": "singleSelection"
   };
   // Note that the save and find-related commands aren't defined by
@@ -7113,6 +7113,7 @@
         { cm.indentLine(sels[i$1].from().line, null, true); }
       ensureCursorVisible(cm);
     }); },
+    newLine: function (cm) {return cm.replaceSelection("\n");},
     openLine: function (cm) { return cm.replaceSelection("\n", "start"); },
     toggleOverwrite: function (cm) { return cm.toggleOverwrite(); }
   };

@@ -1,4 +1,4 @@
-package com.netcracker.project21.uiservice.domain;
+package com.netcracker.edu.interview.domain;
 
 
 // parent for From and To classes

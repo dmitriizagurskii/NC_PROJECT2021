@@ -1,9 +1,8 @@
-package com.netcracker.project21.uiservice.сontrollers;
+package com.netcracker.edu.interview.сontrollers;
 
 
-import com.netcracker.project21.uiservice.interfaces.CodeService;
+import com.netcracker.edu.interview.interfaces.CodeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;

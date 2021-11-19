@@ -1,4 +1,4 @@
-package com.netcracker.project21.uiservice.сontrollers;
+package com.netcracker.edu.interview.сontrollers;
 
 
 import org.springframework.stereotype.Controller;

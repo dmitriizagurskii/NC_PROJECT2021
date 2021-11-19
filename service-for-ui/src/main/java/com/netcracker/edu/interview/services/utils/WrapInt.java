@@ -1,4 +1,4 @@
-package com.netcracker.project21.uiservice.services.utils;
+package com.netcracker.edu.interview.services.utils;
 
 
 // Class that wrapping int to send it in method and change

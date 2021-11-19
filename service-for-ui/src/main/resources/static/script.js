@@ -15,7 +15,13 @@ $(function() {
     myCodeMirror = CodeMirror(editorContainer, {
         value: "",
         mode:  "java",
-        lineNumbers: true
+        lineNumbers: true,
+    });
+
+    myCodeMirror.setOption("extraKeys", {
+        Enter: function(cm) {
+            cm.replaceSelection("\n");
+        }
     });
 
     // listening to buttons events

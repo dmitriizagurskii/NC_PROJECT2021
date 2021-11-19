@@ -1,7 +1,7 @@
-package com.netcracker.project21.uiservice.services.utils;
+package com.netcracker.edu.interview.services.utils;
 
 
-import com.netcracker.project21.uiservice.domain.CodeChangeInfo;
+import com.netcracker.edu.interview.domain.CodeChangeInfo;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.*;

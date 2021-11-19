@@ -1,7 +1,7 @@
-package com.netcracker.project21.uiservice.services;
+package com.netcracker.edu.interview.services;
 
-import com.netcracker.project21.uiservice.domain.CodeText;
-import com.netcracker.project21.uiservice.interfaces.CodeCacheService;
+import com.netcracker.edu.interview.domain.CodeText;
+import com.netcracker.edu.interview.interfaces.CodeCacheService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

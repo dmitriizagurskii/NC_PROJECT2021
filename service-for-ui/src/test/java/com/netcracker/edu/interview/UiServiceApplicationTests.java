@@ -1,4 +1,4 @@
-package com.netcracker.project21.uiservice;
+package com.netcracker.edu.interview;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

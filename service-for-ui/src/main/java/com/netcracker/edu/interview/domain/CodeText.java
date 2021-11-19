@@ -1,4 +1,4 @@
-package com.netcracker.project21.uiservice.domain;
+package com.netcracker.edu.interview.domain;
 
 
 import java.util.UUID;

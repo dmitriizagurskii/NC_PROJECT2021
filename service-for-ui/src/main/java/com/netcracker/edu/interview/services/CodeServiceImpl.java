@@ -1,17 +1,15 @@
-package com.netcracker.project21.uiservice.services;
+package com.netcracker.edu.interview.services;
 
-import com.netcracker.project21.uiservice.domain.CodeChange;
-import com.netcracker.project21.uiservice.domain.CodeText;
-import com.netcracker.project21.uiservice.interfaces.CodeCacheService;
-import com.netcracker.project21.uiservice.interfaces.CodeService;
-import com.netcracker.project21.uiservice.services.utils.CodeUtility;
+import com.netcracker.edu.interview.domain.CodeText;
+import com.netcracker.edu.interview.interfaces.CodeCacheService;
+import com.netcracker.edu.interview.domain.CodeChange;
+import com.netcracker.edu.interview.interfaces.CodeService;
+import com.netcracker.edu.interview.services.utils.CodeUtility;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-import java.util.UUID;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -73,7 +71,7 @@ public class CodeServiceImpl implements CodeService {
 
     @Override
     public String getCodeText(String id) {
-       return codeCacheService.getCodeTextById(id).getTextString();
+       return codeCacheService.getCodeTextById(id).getTextString().trim();
     }
 
 

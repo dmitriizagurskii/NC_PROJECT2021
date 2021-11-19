@@ -1,4 +1,4 @@
-package com.netcracker.project21.uiservice.services.utils;
+package com.netcracker.edu.interview.services.utils;
 
 import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;

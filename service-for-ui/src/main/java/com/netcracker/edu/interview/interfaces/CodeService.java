@@ -1,9 +1,7 @@
-package com.netcracker.project21.uiservice.interfaces;
+package com.netcracker.edu.interview.interfaces;
 
-import com.netcracker.project21.uiservice.domain.CodeChange;
-import com.netcracker.project21.uiservice.domain.CodeText;
-
-import java.util.UUID;
+import com.netcracker.edu.interview.domain.CodeChange;
+import com.netcracker.edu.interview.domain.CodeText;
 
 public interface CodeService {
     // Applying change to code by room id and send full code text to task management service,
