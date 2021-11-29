@@ -1,8 +1,7 @@
-package com.netcracker.demo.model.repository;
+package com.netcracker.edu.interview.serviceforauth.model.repository;
 
-import com.netcracker.demo.model.Policy;
+import com.netcracker.edu.interview.serviceforauth.model.Policy;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 

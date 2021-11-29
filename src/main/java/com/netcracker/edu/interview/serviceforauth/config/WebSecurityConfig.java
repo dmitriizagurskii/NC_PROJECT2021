@@ -1,4 +1,4 @@
-package com.netcracker.demo.config;
+package com.netcracker.edu.interview.serviceforauth.config;
 
 import org.keycloak.adapters.KeycloakConfigResolver;
 import org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolver;
@@ -40,7 +40,7 @@ public class WebSecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
         super.configure(http);
         http
                 .authorizeRequests()
-                .antMatchers("/policy/**").permitAll()
-                .anyRequest().fullyAuthenticated();
+                .antMatchers("/**").permitAll()
+                .anyRequest().permitAll();
     }
 }

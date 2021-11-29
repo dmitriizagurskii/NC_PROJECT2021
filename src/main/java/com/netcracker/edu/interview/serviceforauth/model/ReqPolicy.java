@@ -1,4 +1,4 @@
-package com.netcracker.demo.model;
+package com.netcracker.edu.interview.serviceforauth.model;
 
 public final class ReqPolicy {
     private String resource;

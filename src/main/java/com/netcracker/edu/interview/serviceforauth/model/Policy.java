@@ -1,4 +1,4 @@
-package com.netcracker.demo.model;
+package com.netcracker.edu.interview.serviceforauth.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

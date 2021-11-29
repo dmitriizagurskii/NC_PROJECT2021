@@ -1,4 +1,4 @@
-package com.netcracker.demo.model;
+package com.netcracker.edu.interview.serviceforauth.model;
 
 public class User {
     private String firstName;

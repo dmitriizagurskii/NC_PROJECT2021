@@ -1,15 +1,11 @@
-package com.netcracker.demo.controller;
+package com.netcracker.edu.interview.serviceforauth.controller;
 
-import com.netcracker.demo.model.Policy;
-import com.netcracker.demo.model.ReqPolicy;
-import com.netcracker.demo.model.RespPolicy;
-import com.netcracker.demo.model.repository.PolicyRepository;
+import com.netcracker.edu.interview.serviceforauth.model.Policy;
+import com.netcracker.edu.interview.serviceforauth.model.ReqPolicy;
+import com.netcracker.edu.interview.serviceforauth.model.RespPolicy;
+import com.netcracker.edu.interview.serviceforauth.model.repository.PolicyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestWrapper;
 import org.springframework.web.bind.annotation.*;
 

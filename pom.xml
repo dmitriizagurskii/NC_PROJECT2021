@@ -8,10 +8,10 @@
 		<version>2.5.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.netcracker</groupId>
-	<artifactId>demo</artifactId>
+	<groupId>com.netcracker.edu.interview</groupId>
+	<artifactId>service-for-auth</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>demo</name>
+	<name>service-for-auth</name>
 	<description>Demo project for netcracker</description>
 	<properties>
 		<java.version>11</java.version>

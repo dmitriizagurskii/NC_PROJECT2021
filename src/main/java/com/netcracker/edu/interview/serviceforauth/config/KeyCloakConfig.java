@@ -1,12 +1,14 @@
-package com.netcracker.demo.config;
+package com.netcracker.edu.interview.serviceforauth.config;
 
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
 import org.keycloak.OAuth2Constants;
 import org.keycloak.admin.client.Keycloak;
 import org.keycloak.admin.client.KeycloakBuilder;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
+@Configuration
 public class KeyCloakConfig {
-    static Keycloak keycloak = null;
     final static String serverUrl = "http://localhost:8080/auth";
     final public static String realm = "Netcracker";
     final static String clientId = "my_client";
@@ -14,13 +16,9 @@ public class KeyCloakConfig {
     final static String userName = "admin";
     final static String password = "admin";
 
-    public void KeycloakConfig() {
-    }
-
-    public static Keycloak getInstance(){
-        if(keycloak == null){
-
-            keycloak = KeycloakBuilder.builder()
+    @Bean
+    public Keycloak keycloak(){
+            return KeycloakBuilder.builder()
                     .serverUrl(serverUrl)
                     .realm(realm)
                     .grantType(OAuth2Constants.PASSWORD)
@@ -32,7 +30,5 @@ public class KeyCloakConfig {
                             .connectionPoolSize(10)
                             .build())
                     .build();
-        }
-        return keycloak;
     }
 }
