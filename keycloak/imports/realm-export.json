@@ -44,7 +44,7 @@
     "realm": [
       {
         "id": "6ba29a53-5f97-4e70-b8f0-03ea4ea6c568",
-        "name": "ADMIN",
+        "name": "ROLE_ADMIN",
         "composite": false,
         "clientRole": false,
         "containerId": "Netcracker",
@@ -52,7 +52,7 @@
       },
       {
         "id": "e7cca5ef-4b3a-4703-99e3-65f818f87329",
-        "name": "USER",
+        "name": "ROLE_USER",
         "composite": false,
         "clientRole": false,
         "containerId": "Netcracker",
@@ -636,7 +636,9 @@
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "secret": "**********",
-      "redirectUris": [],
+      "redirectUris": [
+        "http://localhost:8080/*"
+      ],
       "webOrigins": [],
       "notBefore": 0,
       "bearerOnly": false,
