@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.transaction.Transactional;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.UUID;
 
@@ -26,7 +28,6 @@ public class CustomerInformationService {
         customerInformation.setFileId(idFile);
         customerInformationRepository.save(customerInformation);
 
-
         return idFile;
     }
 
@@ -40,7 +41,6 @@ public class CustomerInformationService {
 
     @Transactional
     public void deleteUser(String uuid) {
-
         UUID a = UUID.fromString(uuid);
         customerInformationRepository.deleteByFileId(a);
     }
@@ -49,26 +49,34 @@ public class CustomerInformationService {
     public void saveCustomInformationFile(MultipartFile file, String inputeUuid) throws IOException {
 
         if (customerInformationRepository.existsByFileId(UUID.fromString(inputeUuid))) {
-            CustomerInformationFile customerInformationFile = new CustomerInformationFile(file.getOriginalFilename(), file.getBytes());
-            customerInformationFileRepository.save(customerInformationFile);
-
             Iterable<CustomerInformation> interviewer = customerInformationRepository.findByFileId(UUID.fromString(inputeUuid));
             CustomerInformation customerInformation = interviewer.iterator().next();
-            customerInformation.addFile(customerInformationFile);
-
+            CustomerInformationFile customerInformationFile = new CustomerInformationFile(file.getOriginalFilename(), file.getBytes());
+            customerInformationFile.setIdCustomer(customerInformation);
+            customerInformationFileRepository.save(customerInformationFile);
             customerInformationRepository.save(customerInformation);
         }
 
     }
 
-    public byte[] getFile(String fileName) {
+    @Transactional
+    public ByteArrayInputStream getFile(String fileName) throws IOException {
         Iterable<CustomerInformation> interviewer = customerInformationRepository.findByFileId(UUID.fromString(fileName));
         CustomerInformation customerInformation = interviewer.iterator().next();
-        // Collection<CustomerInformationFile> a=customerInformation.getFile();
+        Iterable<CustomerInformationFile> a = customerInformationFileRepository.findByIdCustomer(customerInformation);
+        ByteArrayInputStream bis = null;
 
-        Iterable<CustomerInformationFile> a = customerInformationFileRepository.findAll();
-        CustomerInformationFile file = a.iterator().next();
-         return file.getData();
+        ByteArrayOutputStream outStream = new ByteArrayOutputStream();
+        for (CustomerInformationFile file : a) {
+
+            outStream.write(file.getData());
+
+        }
+
+        byte[] mass = outStream.toByteArray();
+        bis = new ByteArrayInputStream(mass);
+
+        return bis;
 
     }
 }

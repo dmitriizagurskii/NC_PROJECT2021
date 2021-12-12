@@ -21,8 +21,9 @@ public class CustomerInformationFile {
     private byte[] data;
 
 
-    @ManyToMany(mappedBy = "files")
-    private Collection<CustomerInformation> users;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_cust", referencedColumnName = "id")
+    private CustomerInformation idCustomer;
 
     public String getName() {
         return name;
@@ -46,6 +47,14 @@ public class CustomerInformationFile {
     }
 
     public CustomerInformationFile() {
+    }
+
+    public CustomerInformation getIdCustomer() {
+        return idCustomer;
+    }
+
+    public void setIdCustomer(CustomerInformation idCustomer) {
+        this.idCustomer = idCustomer;
     }
 
     public byte[] getData() {

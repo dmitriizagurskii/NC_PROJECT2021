@@ -9,6 +9,5 @@ import java.util.UUID;
 
 public interface CustomerInformationFileRepository extends CrudRepository<CustomerInformationFile, Integer> {
 
-    //убрать
-    //Iterable<CustomerInformationFile> fi(@Param("fileId") UUID fileId);
+    Iterable<CustomerInformationFile> findByIdCustomer(@Param("id_cust") CustomerInformation idCustomer);
 }

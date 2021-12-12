@@ -16,6 +16,8 @@ public class CustomerInformation {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+
+
     @Column(name = "first_name")
     private String firstName;
     @Column(name = "second_name")
@@ -30,25 +32,21 @@ public class CustomerInformation {
     private String employer;
     @Column(name = "file_id")
     private UUID fileId;
-    //добавить больше данных
 
-    @ManyToMany
-    @JoinTable(
-            name = "customerInformation_customerInformationfile",
-            joinColumns = @JoinColumn(name = "customerInformation_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "file_id", referencedColumnName = "id")
-    )
-    private Collection<CustomerInformationFile> files;
+
+
+
 
     public void setFileId(UUID fileId) {
         this.fileId = fileId;
     }
-    public void addFile(CustomerInformationFile customerInformationFile){
-        files.add(customerInformationFile);
-    }
-    public Collection<CustomerInformationFile> getFile(){
-        return files;
-    }
+
+   // public void addFile(CustomerInformationFile customerInformationFile){
+   //     files.add(customerInformationFile);
+   // }
+ //   public Collection<CustomerInformationFile> getFile(){
+  //      return files;
+  //  }
     public String getFirstName() {
         return firstName;
     }
@@ -67,6 +65,9 @@ public class CustomerInformation {
 
     public String getEmail() {
         return email;
+    }
+    public long getId() {
+        return id;
     }
 
     public void setEmail(String email) {
