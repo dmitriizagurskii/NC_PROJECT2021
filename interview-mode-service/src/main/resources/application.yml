@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/interviewdb
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: create
+
+azure:
+  activedirectory:
+    # Specifies your Active Directory ID:
+    tenant-id: c5943d2c-1d5e-4563-94d4-6b0b7b57e2b6
+    # Specifies your App Registration's Application ID:
+    client-id: 93417de0-a9cd-4a79-90cc-c776736e0bc2
+    # Specifies your App Registration's secret key:
+    client-secret: -R.7Q~tgp9I8M0RslcwEbf5s6dw_l7nvpgO63
+    # Specifies the post-log-out-redirect-uri, where to return your app after logout.
+    post-logout-redirect-uri: http://localhost:8080
+
+    authorization-clients:
+      graph:
+        # Specifies the Microsoft Graph scopes that your app needs access to:
+        scopes: User.Read, Calendars.ReadWrite, Calendars.Read, MailboxSettings.Read
